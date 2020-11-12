@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import NewComponent from './new';
 
 
 class App extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            text: 'test'
-        };
-    }
-
-    inputOnChange(event) {
-        const text = event.target.value;
-        this.setState({ text });
     }
 
     render() {
         return (
-            <div className="test">
-                <h1>Hello</h1>
-                <input type="text" value={ this.state.text } onChange={ this.inputOnChange.bind(this) } />
+            <div>
+                <h1>App component</h1>
+                <NewComponent text="hello from app" />
             </div>
         );
     }
