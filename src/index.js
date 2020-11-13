@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Router } from 'react-router';
 import ReactDOM from 'react-dom';
 import NewComponent from './new';
 
@@ -7,30 +8,12 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            array: [
-                {
-                    id: 1,
-                    text: 'item 1'
-                },
-                {
-                    id: 2,
-                    text: 'item 2'
-                },
-                {
-                    id: 3,
-                    text: 'item 3'
-                }
-            ]
-        };
     }
 
     render() {
         return (
             <div>
                 <h1>App component</h1>
-                <NewComponent array={ this.state.array } />
             </div>
         );
     }
@@ -38,6 +21,9 @@ class App extends Component {
 }
 
 ReactDOM.render(
-    <App />,
+    <Router>
+        <Route path={'/'} component={ App } />
+        <Route path={'new'} component={ NewComponent } />
+    </Router>,
     document.getElementById('app')
 );
